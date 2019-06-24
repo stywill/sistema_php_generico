@@ -1,0 +1,42 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22/10/2018, 19:38:43
+    Author     : Wilson Oliveira
+*/
+.error{
+    /*
+   display: none;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #f86c6b;
+  */
+  position:relative !important;   
+  color: red !important;
+  font-size:15px !important;
+  padding-left:6px;
+  border-color: #f86c6b;
+}
+.iframe-container {
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+}
+ 
+.iframe-container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+}
+ 
+/* 4x3 Aspect Ratio */
+.iframe-container-4x3 {
+  padding-top: 75%;
+}

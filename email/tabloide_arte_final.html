@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>NOVO TABLOIDE</title>
+    <style>
+        @font-face {
+            font-family: 'gotham_ultraregular';
+            src: url('http://brandworks.com.br/viaVarejo/fonts/gotham-ultra-webfont.woff2') format('woff2'),
+                url('http://brandworks.com.br/viaVarejo/fonts/gotham-ultra-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+
+        }
+        h2 {
+            font-family: gotham_ultraregular, sans-serif;
+            font-size: 28px;
+            color: #147894;
+            margin: 55px 0 5px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        h2:before {
+            border-top: 2px solid #147894;
+            content: "";
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: -1;
+        }
+
+        h2 span {
+            background: #ffff;
+            padding: 0 15px;
+        }
+
+        .confirmacao {
+            min-height: 580px;
+            margin-top: -90px;
+        }
+
+        .confirmacao p {
+            font-size: 17px;
+            padding-left: 25px;
+            color: #147894;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <table
+            style="background:font-family:'gotham_ultraregular';src: url('http://brandworks.com.br/viaVarejo/fonts/gotham-ultra-webfont.woff2') format('woff2'),url('http://brandworks.com.br/viaVarejo/fonts/gotham-ultra-webfont.woff') format('woff');font-weight: normal;font-style: normal;"
+            cellspacing="0" cellpadding="0" border="0">
+            <tr>
+                <td>
+                    <img src="http://brandworks.com.br/bw_tabloides/src/img/brand/BWmail.png" width="300px" height="300px">
+                </td>
+                <td class="confirmacao">
+                    <header class="title" style="text-align: center;margin-bottom: 1px;">
+                        <h2 style="font-family: gotham_ultraregular, sans-serif;font-size:28px;color: #147894;margin: 55px 0 5px 0;position: relative;z-index: 1;">
+                            <span class="subtitle" style="font-size:17px;color: #147894;">[TITULO]</span>
+                        </h2>
+                    </header>
+                    <p>GEO : [GEO]</p>
+                    <p>LÂMINA : [LAMINA]</p>
+                    <p>DATA ENVIO : [DT_ENVIO]</p>
+                    <p><a href="http://brandworks.com.br/bw_tabloides/index.php" target="_blank">Acesse o sistema para visualizar o arquivo</a></p>
+                </td>
+            </tr>
+
+        </table>
+    </center>
+</body>
+
+</html>
