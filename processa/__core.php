@@ -57,13 +57,13 @@ class core {
             'DB_HOST' => '127.0.0.1',
             'DB_USER' => 'root',
             'DB_PASS' => '',
-            'DB_DATA' => 'gestao_pauta'
+            'DB_DATA' => ''
         ),
         'online' => array(
-            'DB_HOST' => '186.202.152.62',
-            'DB_USER' => 'bw_tabloides',
-            'DB_PASS' => 'tab10Bw05',
-            'DB_DATA' => 'bw_tabloides'
+            'DB_HOST' => '',
+            'DB_USER' => '',
+            'DB_PASS' => '',
+            'DB_DATA' => ''
         ),
         'default' => array(
             'DB_HOST' => '',
