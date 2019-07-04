@@ -33,9 +33,9 @@ class core {
     // CONFIG
     // ---------------------------------------------------------
     // setagens gerais para utilização / modificação rapida:
-    public $_core_titulo = "BrandWorks";
+    public $_core_titulo = "";
     public $_core_run = "prod";
-    public $db_prefix = "bwt_"; // prod
+    public $db_prefix = ""; // prod
     public $data_ini = "2017-12-09"; // 
     //public $db_prefix = "hset_"; // teste
     public $_database_use = 'online';
