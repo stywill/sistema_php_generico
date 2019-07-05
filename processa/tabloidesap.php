@@ -21,7 +21,7 @@ if ($axn == "editar") {
     if ($core->_vars['user']['logado']) {
         if ($_FILES) { // Verificando se existe o envio de arquivos.
             if ($_FILES['arquivo']) {
-                $arquivo = $core->arquivoUpload($_FILES, "90000", "artefinais");
+                $arquivo = $core->arquivoUpload($_FILES, "500000", "artefinais");
             }
         }
         if ($arquivo[0] != 'Erro') {

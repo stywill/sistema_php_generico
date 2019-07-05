@@ -31,8 +31,7 @@
                                         } elseif ($value->aprovado == 'R') {
                                             $statusAf = ' <span class="badge badge-danger">Reprovado</span>';
                                         } elseif ($value->aprovado == 'P' && $value->imagem) {
-                                            $statusAf = '<span class="badge badge-warning">Pendente</span>';
-                   
+                                            $statusAf = '<span class="badge badge-warning">Pendente</span>';                  
                                         } else {
                                             $statusAf = '';
                                         }
@@ -59,7 +58,6 @@
                             </table>                  
                         </div>
                     </div>
-                    <br><br><br><br><br><br><br><br>
                 </div>
                 <!-- /.col-->
                 
@@ -71,6 +69,7 @@
 <script>
     $(document).ready(function () {
         $('#tab_areas').DataTable({
+            order: [[ 3, "desc" ]],
              pagingType: 'full',
             "language": {
                 "search": "Buscar:",

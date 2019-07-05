@@ -164,9 +164,10 @@ function excluirConfirma(msg,msgr,dados, retorno) {
     }
 }
 function validaAf(msg,msgr,dados, retorno){
-    console.log($('#obs').val());
+    console.log($('#obs').val())
+    console.log($('#obsHist').val())
     if (confirm(msg)) {
-        getAjContent('processa/'+dados+'&obs='+$('#obs').val(), retorno);       
+        getAjContent('processa/'+dados+'&obs='+$('#obs').val()+'&obsHist='+$('#obsHist').val(), retorno);       
         //setTimeout(function () {
             location.reload();
         //}, 2000);  

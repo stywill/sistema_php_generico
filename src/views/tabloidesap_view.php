@@ -1,8 +1,3 @@
-<?php
-$cadastro = $dados[0];
-$idUsuario = ($cadastro->id_usuario) ? $cadastro->id_usuario : $core->_vars['user']['id'];
-$idEstadoGeo = ($cadastro->id_estado_geo) ? $cadastro->id_estado_geo : $core->_vars['user']['ga'];
-?>
 <main class="main">
     <!-- Breadcrumb-->
     <ol class="breadcrumb">
@@ -34,7 +29,7 @@ $idEstadoGeo = ($cadastro->id_estado_geo) ? $cadastro->id_estado_geo : $core->_v
                                                         <input id="id_estado_geo" name="id_estado_geo" type="hidden" value="<?= $idEstadoGeo; ?>">   
                                                     </div> 
                                                     <div class="form-group col-sm-6">
-                                                        <label class="col-form-label" for="file-input">Enviar Arquivo(apenas pdf maximo 70kb)</label>
+                                                        <label class="col-form-label" for="file-input">Enviar Arquivo<strong>(apenas pdf máximo 500KB)</strong></label>
                                                         <input id="arquivo" type="file" name="arquivo">
                                                     </div>
                                                 </div>
@@ -129,7 +124,7 @@ $idEstadoGeo = ($cadastro->id_estado_geo) ? $cadastro->id_estado_geo : $core->_v
                                     <div class="col-md-6">
                                         <div class="card">
                                             <div class="card-header">
-                                                <i class="fa fa-align-justify"></i> <strong>CDDs / Revendas</strong>
+                                                <i class="fa fa-align-justify"></i> <strong>Operacões</strong>
                                             </div>
                                             <div class="card-body">  
                                                 <div class="row" id="operacaolinha<?= $count; ?>">
@@ -162,6 +157,7 @@ $idEstadoGeo = ($cadastro->id_estado_geo) ? $cadastro->id_estado_geo : $core->_v
                                     </div> 
                                     <?php
                                     if ($tabloide[0]->imagem) {
+                                     
                                         ?>
                                         <div class="col-md-6">
                                             <div class="card">
@@ -170,10 +166,10 @@ $idEstadoGeo = ($cadastro->id_estado_geo) ? $cadastro->id_estado_geo : $core->_v
                                                 </div>
                                                 <div class="card-body"> 
                                                     <div class="row">
-                                                        <label>Observação</label>
+                                                        <label>Observações</label>
                                                     </div>
                                                     <div class="row col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-3">
-                                                        <textarea class="form-control" name="obs" id="obs"><?=$tabloide[0]->obs;?></textarea>
+                                                        <textarea class="form-control" name="obs" id="obs"><?=str_replace("|","\nl",$tabloide[0]->obs);?></textarea>
                                                     </div>
                                                     <div class="row">
                                                         <iframe  class="col-lg-12 col-md-12 col-sm-12" src="<?=$tabloide[0]->imagem;?>" style="width:600px; height:500px;" frameborder="0"> </iframe>                                                                                                       

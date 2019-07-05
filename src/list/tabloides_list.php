@@ -53,14 +53,14 @@
                                             </td>
                                         </tr>
                                         <?php
-                                        $statusAf='';
+                                        $statusAf = '';
                                     }
                                     ?>
                                 </tbody>
                             </table>                  
                         </div>
                     </div>
-                    <br><br><br><br><br><br><br><br>
+
                 </div>
                 <!-- /.col-->
 
@@ -72,6 +72,7 @@
 <script>
     $(document).ready(function () {
         $('#tab_areas').DataTable({
+            order: [[ 3, "desc" ]],
             pagingType: 'full',
             "language": {
                 "search": "Buscar:",
@@ -96,6 +97,10 @@
                     }
                 }
             }
+
         });
+        /*$('#tab_areas').DataTable({
+            "order": [[3, "desc"]]
+        });*/
     });
 </script>

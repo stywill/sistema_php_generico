@@ -51,7 +51,8 @@
             </button>
             <ul class="nav navbar-nav d-md-down-none">
                 <li class="nav-item px-3">
-
+                    <?=($core->_database_use=='local')?'<div class="alert alert-danger mb-xl-0" role="alert">Usando Base Local</div>':'';?>
+                   
                 </li>
             </ul>
             <ul class="nav navbar-nav ml-auto">       

@@ -22,6 +22,8 @@ if ($ver == 'novo') {
         } else {
             $statusAf = '';
         }
+        $obss = explode('|',$tabloide[0]->obs);
+        $exibeObs = substr($obss[count($obss)-1], strripos($obss[count($obss)-1],'-')+1);
         include 'views/' . $mod . '_view.php';
     } else {
         include 'list/' . $mod . '_list.php';

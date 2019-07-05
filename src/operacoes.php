@@ -14,7 +14,13 @@ if ($ver == 'novo') {
     $dados = $core->gsim("*", $view . $mod, $qf);
 
     if ($ver == 'editar') {
-        
+        $cadastro = $dados[0];
+        if ($core->_vars['user']['ga'] == 3) {
+            $geoestado = '<input disabled="" class="form-control" type="text" value="' . $core->_vars['user']['usgeo'] . '">';
+            $geoestado .= '<input type="hidden" name="estadoGeo" id="estadoGeo" value="' . $core->_vars['user']['idgeo'] . '">';
+        } else {
+            $geoestado = $core->selectClass("estadoGeo", "estadoGeo", "form-control", "", "id,nome,geo", ": ", "aux_estados", "", "nome", $cadastro->id_estado_geo, "--Selecione");
+        }
         include 'views/' . $mod . '_view.php';
     } else {
         include 'list/' . $mod . '_list.php';

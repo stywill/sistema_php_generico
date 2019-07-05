@@ -1,16 +1,7 @@
-<?php
-$cadastro = $dados[0];
-if ($core->_vars['user']['ga'] == 3) {
-    $geoestado = '<input disabled="" class="form-control" type="text" value="' . $core->_vars['user']['usgeo'] . '">';
-    $geoestado .= '<input type="hidden" name="estadoGeo" id="estadoGeo" value="' . $core->_vars['user']['idgeo'] . '">';
-} else {
-    $geoestado = $core->selectClass("estadoGeo", "estadoGeo", "form-control", "", "id,nome,geo", ": ", "aux_estados", "", "nome", $cadastro->id_estado_geo, "--Selecione");
-}
-?>
 <main class="main">
     <!-- Breadcrumb-->
     <ol class="breadcrumb">
-        <li class="breadcrumb-item">Operações</li>  
+        <li class="breadcrumb-item">Operacao</li>  
 <?php //var_dump($cadastro);?>        
     </ol>
     <div class="container-fluid">
@@ -20,7 +11,7 @@ if ($core->_vars['user']['ga'] == 3) {
                 <div class="col-lg-9">
                     <div class="card">
                         <div class="card-header">
-                            <strong>Operações</strong>
+                            <strong>CDD/Revenda</strong>
                             <small><?= ($ac == 'inf') ? 'Visualizar' : 'Editar'; ?></small>
                         </div>
                         <form class="form-horizontal" action="processa/<?= $mod; ?>.php?axn=<?= $ver; ?>" method="post" enctype="multipart/form-data">
@@ -85,7 +76,7 @@ if ($core->_vars['user']['ga'] == 3) {
                             <div class="card-footer">
                                 <input type="hidden" name="cid" id="cid" value="<?= $cadastro->id; ?>">
                                 <?php
-                                if ($st != 'S') {
+                                if ($axn != 'view') {
                                     ?>
                                     <button class="btn btn-sm btn-primary" type="submit"><i class="fa fa-dot-circle-o"></i> Salvar</button>
                                     <?php

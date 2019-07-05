@@ -1,7 +1,7 @@
 <main class="main">
     <!-- Breadcrumb-->
     <ol class="breadcrumb">
-        <li class="breadcrumb-item">Operações</li>
+        <li class="breadcrumb-item">Operação</li>
     </ol>
     <div class="container-fluid">
         <div class="animated fadeIn">
@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-header">
                             <i class="fa fa-align-justify"></i>
-                            <?= ($st == 'N') ? 'Lista' : 'Finalizados'; ?>
+                            Lista
                         </div>
                         <div class="card-body">
                             <table id="tab_jobs" class="table table-responsive-sm table-striped table-bordered datatable dataTable no-footer">
@@ -26,7 +26,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php                                  
+                                    <?php
                                     foreach ($dados as $key => $value) {
                                         ?>
                                         <tr>
@@ -49,8 +49,17 @@
                                                 <?= $value->contato_resp; ?>
                                             </td>
                                             <td>
-                                                <!--<a class="btn btn-success" href="sistema.php?mod=inscritos&ver=editar&ac=inf&lid=<?= $value->id; ?><?php echo '&freg=' . $freg . '&fop=' . $fop . '&codpdv=' . $codpdv; ?>"><i class="fa fa-search-plus"></i></a>-->
-                                                <a class="btn btn-info" href="sistema.php?mod=<?=$mod;?>&ver=editar&st=<?= $st; ?>&lid=<?= $value->id; ?>"><i class="fa fa-edit"></i></a>
+                                                <?php
+                                                if($core->_vars['user']['ga']==3) {
+                                                    ?>
+                                                    <a class="btn btn-success" href="sistema.php?mod=<?= $mod; ?>&ver=editar&axn=view&lid=<?= $value->id; ?>"><i class="fa fa-search-plus"></i></a>
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                    <a class="btn btn-info" href="sistema.php?mod=<?= $mod; ?>&ver=editar&st=<?= $st; ?>&lid=<?= $value->id; ?>"><i class="fa fa-edit"></i></a>
+                                                        <?php
+                                                    }
+                                                    ?>
                                             </td>
                                         </tr>
                                         <?php

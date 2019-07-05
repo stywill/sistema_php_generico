@@ -17,8 +17,8 @@ $idEstadoGeo = ($cadastro->id_estado_geo) ? $cadastro->id_estado_geo : $core->_v
                         <div class="card-header">
                             <strong>Tabloide</strong>
                             <small><?= ($ver == 'novo') ? 'Novo' : 'Editar'; ?></small>
-                            <?=$statusAf;?>
-                            
+                            <?= $statusAf; ?>
+
                         </div>
                         <form id="tabloide" class="form-horizontal" action="processa/<?= $mod; ?>.php?axn=<?= $ver; ?>" method="post" enctype="multipart/form-data">
                             <div class="card-body">
@@ -33,7 +33,7 @@ $idEstadoGeo = ($cadastro->id_estado_geo) ? $cadastro->id_estado_geo : $core->_v
                                                     <input class="form-control" id="nome" name="nome" type="text" placeholder="Nome" onkeydown="limpa('', 'Nome')" value="<?= $cadastro->nome; ?>">
                                                     <input id="id_usuario" name="id_usuario" type="hidden" value="<?= $idUsuario; ?>">
                                                     <input id="id_estado_geo" name="id_estado_geo" type="hidden" value="<?= $idEstadoGeo; ?>">   
-                                                     <label id="erroNome"></label>
+                                                    <label id="erroNome"></label>
                                                 </div>                                                
                                             </div>
                                         </div>
@@ -80,7 +80,7 @@ $idEstadoGeo = ($cadastro->id_estado_geo) ? $cadastro->id_estado_geo : $core->_v
                                                                     <label for="por">Por</label><input class="form-control valores" id="porCapa<?= $count; ?>" name="porCapa[]" type="text" value="<?= $capa->por; ?>" onkeydown="limpa(<?= $count; ?>, 'Capa')">
                                                                 </div>
                                                                 <div class="form-group col-sm-2">
-                                                                    <br><button class="btn btn-danger" onclick="excluirConfirma('Deseja excluir está linha','Registro excluido com sucesso!', 'aj_excluir.php?tipo=D&tab=tabloide_capas&id=<?= $capa->id; ?>', 'noRet')" type="button"><i class="fa fa-trash-o"></i></button>
+                                                                    <br><button class="btn btn-danger" onclick="excluirConfirma('Deseja excluir está linha', 'Registro excluido com sucesso!', 'aj_excluir.php?tipo=D&tab=tabloide_capas&id=<?= $capa->id; ?>', 'noRet')" type="button"><i class="fa fa-trash-o"></i></button>
                                                                 </div>
                                                             </div>
                                                             <?php
@@ -132,7 +132,7 @@ $idEstadoGeo = ($cadastro->id_estado_geo) ? $cadastro->id_estado_geo : $core->_v
                                                                     <label for="por">Por</label><input class="form-control valores" id="porVerso<?= $count; ?>" name="porVerso[]" type="text" value="<?= $verso->por; ?>" onkeydown="limpa(<?= $count; ?>, 'Verso')">
                                                                 </div>
                                                                 <div class="form-group col-sm-2">
-                                                                    <br><button class="btn btn-danger" onclick="excluirConfirma('Deseja excluir está linha','Registro excluido com sucesso!', 'aj_excluir.php?tipo=D&tab=tabloide_versos&id=<?= $verso->id; ?>', 'noRet')" type="button"><i class="fa fa-trash-o"></i></button>
+                                                                    <br><button class="btn btn-danger" onclick="excluirConfirma('Deseja excluir está linha', 'Registro excluido com sucesso!', 'aj_excluir.php?tipo=D&tab=tabloide_versos&id=<?= $verso->id; ?>', 'noRet')" type="button"><i class="fa fa-trash-o"></i></button>
                                                                 </div>
                                                             </div>
                                                             <?php
@@ -158,7 +158,7 @@ $idEstadoGeo = ($cadastro->id_estado_geo) ? $cadastro->id_estado_geo : $core->_v
                                                         <label for="postal-code">Operações</label>
                                                     </div>
                                                     <div class="form-group col-sm-7">
-                                                        <?= $core->selectClass("operacao", "operacao", "form-control", "limpa('', 'AddOp')", "id,operacao,cidade", " / ", "operacoes", "id_estado_geo=".$core->_vars['user']['idgeo'], "operacao", $cadastro->id_operacao, "--Selecione"); ?>  
+                                                        <?= $core->selectClass("operacao", "operacao", "form-control", "limpa('', 'AddOp')", "id,UPPER(cidade),UPPER(operacao)", " - ", "operacoes", "id_estado_geo=" . $core->_vars['user']['idgeo'], "cidade", $cadastro->id_operacao, "--Selecione"); ?>  
                                                         <label id="erroAddOp"></label>
                                                     </div>                                                
                                                     <div class="form-group col-sm-2">
@@ -184,7 +184,7 @@ $idEstadoGeo = ($cadastro->id_estado_geo) ? $cadastro->id_estado_geo : $core->_v
                                                                     <input class="form-control quantidade" id="quantidade<?= $count; ?>" name="quantidade[]" type="text" value="<?= $op->quantidade; ?>"  onkeydown="limpa(<?= $count; ?>, 'Op')">
                                                                 </div>
                                                                 <div class="form-group col-sm-2">
-                                                                    <br><button class="btn btn-danger" onclick="excluirConfirma('Deseja excluir está linha','Registro excluido com sucesso!', 'aj_excluir.php?tipo=D&tab=tabloide_operacoes&id=<?= $op->id; ?>', 'noRet')" type="button"><i class="fa fa-trash-o"></i></button>
+                                                                    <br><button class="btn btn-danger" onclick="excluirConfirma('Deseja excluir está linha', 'Registro excluido com sucesso!', 'aj_excluir.php?tipo=D&tab=tabloide_operacoes&id=<?= $op->id; ?>', 'noRet')" type="button"><i class="fa fa-trash-o"></i></button>
                                                                 </div>
                                                             </div>
                                                             <?php
@@ -204,30 +204,53 @@ $idEstadoGeo = ($cadastro->id_estado_geo) ? $cadastro->id_estado_geo : $core->_v
                                         <div class="col-md-6">
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <i class="fa fa-align-justify"></i> <strong>Arte Final</strong>                                                                                                  
+                                                    <i class="fa fa-align-justify"></i> <strong>Arte Final</strong>   
                                                 </div>
-                                                <div class="card-body">  
-                                                    <div class="row">
-                                                        <label>Observação</label>
-                                                    </div>
-                                                    <div class="row col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-3">
-                                                        <textarea class="form-control" name="obs" id="obs"><?=$tabloide[0]->obs;?></textarea>
-                                                    </div>
+                                                <div class="card-body">        
                                                     <div class=" row align-items-center">
                                                         <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0 text-center">
-                                                            <button class="btn btn-sm btn-pill btn-block btn-success active" type="button" aria-pressed="true" onclick="validaAf('Deseja aprovar está arte final','Arte aprovada com sucesso','aj_avaliar_tab.php?tipo=U&tab=tabloides&valor=A&campo=aprovado&id=<?= $lid; ?>','noRet')">Aprovar</button>
+                                                            <button class="btn btn-sm btn-pill btn-block btn-success active" type="button" aria-pressed="true" onclick="validaAf('Deseja aprovar está arte final', 'Arte aprovada com sucesso', 'aj_avaliar_tab.php?tipo=U&tab=tabloides&valor=A&campo=aprovado&id=<?= $lid; ?>', 'noRet')">Aprovar</button>
                                                         </div>
                                                         <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0 text-center">
-                                                            <button class="btn btn-sm btn-pill btn-block btn-danger active" type="button" aria-pressed="true" onclick="validaAf('Deseja reprovar está arte final','Arte reprovada com sucesso','aj_avaliar_tab.php?tipo=U&tab=tabloides&valor=R&campo=aprovado&id=<?= $lid; ?>','noRet')">Reprovar</button>
+                                                            <!--<button class="btn btn-sm btn-pill btn-block btn-danger active" type="button" aria-pressed="true" onclick="validaAf('Deseja reprovar está arte final','Arte reprovada com sucesso','aj_avaliar_tab.php?tipo=U&tab=tabloides&valor=R&campo=aprovado&id=<?= $lid; ?>','noRet')">Reprovar</button>-->
+                                                            <button class="btn btn-sm btn-pill btn-block btn-danger active" type="button" data-toggle="modal" data-target="#dangerModal">Reprovar</button>
                                                         </div>                                                 
                                                     </div>
-                                                    <div class="row  mt-3">
+                                                    <div class="row mt-3">
                                                         <iframe  class="col-lg-12 col-md-12 col-sm-12" src="<?= $tabloide[0]->imagem; ?>" style="width:600px; height:500px;" frameborder="0"> </iframe>                                                                                                       
                                                     </div>                                                
                                                 </div>
                                             </div>
                                             <!-- /.col-->
                                         </div> 
+                                        <!-- /.modal-->
+                                        <div class="modal fade" id="dangerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-danger" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Reprovar Arte final</h4>
+                                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row col-xl">
+                                                            <label>Observação</label>
+                                                        </div>
+                                                        <div class="row col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-3">
+                                                            <input type="hidden" id="obsHist" name="obsHist" value="<?=$tabloide[0]->obs;?>">
+                                                            <textarea class="form-control" name="obs" id="obs"><?=$exibeObs; ?></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Fechar</button>
+                                                        <button class="btn btn-danger" type="button" onclick="validaAf('Deseja reprovar está arte final','Arte reprovada com sucesso','aj_avaliar_tab.php?tipo=U&tab=tabloides&valor=R&campo=aprovado&id=<?= $lid; ?>','noRet')">Reprovar</button>
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal-content-->
+                                            </div>
+                                            <!-- /.modal-dialog-->
+                                        </div>
                                         <?php
                                     }
                                     ?>

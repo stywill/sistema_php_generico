@@ -60,14 +60,15 @@ foreach ($dados as $key => $tabloide) {
     $html .= '<table width="70%" height="28"  border="1" cellspacing="0" cellpadding="0">';
     $html .= '<thead>';
     $html .= '<tr>';
-    $html .= '<th colspan="5" rospan="2"><center>' . utf8_decode($tabloide->nome) . '</center></th>';
+    $html .= '<th colspan="6" rospan="2"><center>' . utf8_decode($tabloide->nome) . '</center></th>';
     $html .= '</tr>';
     $html .= '<tr>';
     $html .= '<td><b>' . utf8_decode("GEO") . '</b></td>';
-    $html .= '<td><b>Produto</b></td>';
-    $html .= '<td><b>' . utf8_decode('Posição') . '</b></td>';
-    $html .= '<td><b>De</b></td>';
-    $html .= '<td><b>Por</b></td>';
+    $html .= '<td><b>' . utf8_decode("Tipo de Lâmina") . '</b></td>';
+    $html .= '<td><b>' . utf8_decode("Produto") . '</b></td>';
+    $html .= '<td><b>' . utf8_decode("Posição") . '</b></td>';
+    $html .= '<td><b>' . utf8_decode("De") . '</b></td>';
+    $html .= '<td><b>' . utf8_decode("Por") . '</b></td>';
     $html .= '</tr>';
     $html .= '</thead>';
     $html .= '<tbody>';   
@@ -75,6 +76,7 @@ foreach ($dados as $key => $tabloide) {
     foreach ($capas as $key => $capa) {
         $html .= '<tr>';
         $html .= '<td>' . utf8_decode($core->gsi('geo',$db_prefix.'aux_estados','id='.$tabloide->id_estado_geo)) . '</td>';
+        $html .= '<td>' . utf8_decode($tabloide->nome) . '</td>';
         $html .= '<td>' . utf8_decode($core->gsi("nome", $db_prefix . "produtos", "id=" . $capa->id_produto)) . '</td>';
         $html .= '<td>CAPA</td>';
         $html .= '<td>' . $capa->de . '</td>';
@@ -85,6 +87,7 @@ foreach ($dados as $key => $tabloide) {
     foreach ($versos as $key => $verso) {
         $html .= '<tr>';
         $html .= '<td>' . utf8_decode($core->gsi('geo',$db_prefix.'aux_estados','id='.$tabloide->id_estado_geo)) . '</td>';
+        $html .= '<td>' . utf8_decode($tabloide->nome) . '</td>';
         $html .= '<td>' . utf8_decode($core->gsi("nome", $db_prefix . "produtos", "id=" . $verso->id_produto)) . '</td>';
         $html .= '<td>VERSO</td>';
         $html .= '<td>' . $verso->de . '</td>';
